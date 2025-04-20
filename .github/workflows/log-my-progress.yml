@@ -1,5 +1,4 @@
-name: Learning Log Update
-
+name: Learning Progress
 
 on:
   schedule:
@@ -8,29 +7,38 @@ on:
     - cron: '42 15 * * *'
     - cron: '07 20 * * *'
     - cron: '51 23 * * *'
+    - cron: '0 0 1 * *'  # Rotate cron monthly
   workflow_dispatch:
 
 jobs:
-  log:
+  commit-log:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
-      - name: Set timezone (Europe/Berlin)
+      - name: Set timezone to Europe/Berlin
         run: sudo timedatectl set-timezone Europe/Berlin
 
-      - name: Select topic from topics.txt
+      - name: Select random topic from notlar.txt
+        id: pick_topic
         run: |
-          TODAY=$(date '+%Y-%m-%d')
-          TOPIC=$(shuf -n 1 topics.txt)
-          echo "$TODAY - $TOPIC" >> log.txt
-          echo "COMMIT_MSG=$TOPIC" >> $GITHUB_ENV
+          TOPIC=$(shuf -n 1 notlar.txt)
+          echo "topic=$TOPIC" >> $GITHUB_OUTPUT
 
-      - name: Commit changes
+      - name: Update log.txt with new topic
+        run: |
+          echo "$(date '+%Y-%m-%d') - ${{ steps.pick_topic.outputs.topic }}" >> log.txt
+
+      - name: Commit and push changes as yourself
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           git config user.name "ErkanBarann"
           git config user.email "115561897+ErkanBarann@users.noreply.github.com"
           git add log.txt
-          git commit -m "$COMMIT_MSG" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
+          git commit -m "Log: $(date '+%Y-%m-%d') - ${{ steps.pick_topic.outputs.topic }}" || echo "No changes to commit"
+          git remote set-url origin https://ErkanBarann:${GH_TOKEN}@github.com/ErkanBarann/learning-lab.git
+          git push origin main
