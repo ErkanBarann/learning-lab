@@ -1,0 +1,30 @@
+Writing Kubernetes deployment YAML
+Creating EC2 with Terraform
+Creating Ansible role structure
+Dockerfile optimization
+Defining Jenkins pipelines
+Understanding AWS IAM roles
+Monitoring resources with CloudWatch
+Setting up CI/CD with GitHub Actions
+Local development with Docker Compose
+S3 lifecycle policy examples
+Managing S3 buckets with Terraform
+Deploying apps to Kubernetes with Helm
+Creating multi-stage pipelines with Jenkinsfile
+Docker image cleanup methods
+Difference between Kubernetes service and ingress
+Managing secrets with Ansible Vault
+Terraform state file and locking mechanism
+Using Jenkins shared libraries
+Testing Kubernetes rolling updates
+Choosing the right AWS EC2 instance type
+Using dynamic inventory in Ansible
+Docker volume management and persistence
+Difference between Kubernetes configMap and secret
+Difference between Terraform provider and data source
+Defining Kubernetes resource limits
+Using environment variables in Jenkins pipeline
+What is AWS CloudFormation and when to use it
+How Docker build cache works
+Terraform backend configuration
+Kubernetes horizontal pod autoscaling
