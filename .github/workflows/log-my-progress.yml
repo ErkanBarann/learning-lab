@@ -22,10 +22,10 @@ jobs:
       - name: Set timezone to Europe/Berlin
         run: sudo timedatectl set-timezone Europe/Berlin
 
-      - name: Select random topic from notlar.txt
+      - name: Select random topic from topics.txt
         id: pick_topic
         run: |
-          TOPIC=$(shuf -n 1 notlar.txt)
+          TOPIC=$(shuf -n 1 topics.txt)
           echo "topic=$TOPIC" >> $GITHUB_OUTPUT
 
       - name: Update log.txt with new topic
