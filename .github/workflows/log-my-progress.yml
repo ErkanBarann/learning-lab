@@ -1,0 +1,36 @@
+name: Learning Log Update
+
+
+on:
+  schedule:
+    - cron: '13 7 * * *'
+    - cron: '28 11 * * *'
+    - cron: '42 15 * * *'
+    - cron: '07 20 * * *'
+    - cron: '51 23 * * *'
+  workflow_dispatch:
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set timezone (Europe/Berlin)
+        run: sudo timedatectl set-timezone Europe/Berlin
+
+      - name: Select topic from topics.txt
+        run: |
+          TODAY=$(date '+%Y-%m-%d')
+          TOPIC=$(shuf -n 1 notlar.txt)
+          echo "$TODAY - $TOPIC" >> log.txt
+          echo "COMMIT_MSG=$TOPIC" >> $GITHUB_ENV
+
+      - name: Commit changes
+        run: |
+          git config user.name "ErkanBarann"
+          git config user.email "115561897+ErkanBarann@users.noreply.github.com"
+          git add log.txt
+          git commit -m "$COMMIT_MSG" || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
