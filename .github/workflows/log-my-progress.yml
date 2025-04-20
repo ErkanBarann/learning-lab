@@ -23,7 +23,7 @@ jobs:
       - name: Select topic from topics.txt
         run: |
           TODAY=$(date '+%Y-%m-%d')
-          TOPIC=$(shuf -n 1 notlar.txt)
+          TOPIC=$(shuf -n 1 topics.txt)
           echo "$TODAY - $TOPIC" >> log.txt
           echo "COMMIT_MSG=$TOPIC" >> $GITHUB_ENV
 
