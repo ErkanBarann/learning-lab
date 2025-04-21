@@ -14,25 +14,52 @@ jobs:
   commit-log:
     runs-on: ubuntu-latest
     steps:
+      - name: Download picked time
+        uses: actions/download-artifact@v3
+        with:
+          name: picked-time
+
+      - name: Check if current time matches picked time
+        id: timecheck
+        run: |
+          PICKED=$(cat picked-time.txt)
+          CURRENT_HOUR=$(date +%H)
+          CURRENT_MIN=$(date +%M)
+          CURRENT_TIME="${CURRENT_HOUR#0}:${CURRENT_MIN#0}"
+
+          echo "Picked time: $PICKED"
+          echo "Current time: $CURRENT_TIME"
+
+          if [ "$PICKED" = "$CURRENT_TIME" ]; then
+            echo "run=true" >> $GITHUB_OUTPUT
+          else
+            echo "run=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Checkout repository
+        if: steps.timecheck.outputs.run == 'true'
         uses: actions/checkout@v3
         with:
           persist-credentials: false
 
       - name: Set timezone to Europe/Berlin
+        if: steps.timecheck.outputs.run == 'true'
         run: sudo timedatectl set-timezone Europe/Berlin
 
       - name: Select random topic from topics.txt
+        if: steps.timecheck.outputs.run == 'true'
         id: pick_topic
         run: |
           TOPIC=$(shuf -n 1 topics.txt)
           echo "topic=$TOPIC" >> $GITHUB_OUTPUT
 
       - name: Update log.txt with new topic
+        if: steps.timecheck.outputs.run == 'true'
         run: |
           echo "$(date '+%Y-%m-%d') - ${{ steps.pick_topic.outputs.topic }}" >> log.txt
 
       - name: Commit and push changes as yourself
+        if: steps.timecheck.outputs.run == 'true'
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
