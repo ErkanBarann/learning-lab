@@ -1,32 +1,20 @@
-name: Scheduler
+name: Scheduler Test
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # Her gün gece 00:00'da çalışır
-  workflow_dispatch:      # Manuel test için
+  workflow_dispatch:
 
 jobs:
-  select-random-time:
+  test-picked-time:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Create cache folder
         run: mkdir -p .github/.cache
 
-      - name: Pick random time and save to hidden file
+      - name: Write fixed time to picked-time.txt
         run: |
-          echo "Available times: 07:13 11:28 15:42 20:07 23:51"
-
-          TIMES=("07:13" "11:28" "15:42" "20:07" "23:51")
-          COUNT=${#TIMES[@]}
-
-          RANDOM_INDEX=$(od -An -N2 -i /dev/urandom | awk -v max="$COUNT" '{print $1 % max}')
-          PICKED=${TIMES[$RANDOM_INDEX]}
-
-          echo "Selected index: $RANDOM_INDEX"
-          echo "Picked time: $PICKED"
-
-          echo "$PICKED" > .github/.cache/picked-time.txt
-          echo "File written with: $(cat .github/.cache/picked-time.txt)"
+          echo "11:28" > .github/.cache/picked-time.txt
+          echo "Written value:"
+          cat .github/.cache/picked-time.txt
