@@ -22,3 +22,6 @@ jobs:
           PICKED=${TIMES[$INDEX]}
           echo "$PICKED" > .github/.cache/picked-time.txt
           echo "Picked time for today: $PICKED"
+          echo "Contents of file:"
+          cat .github/.cache/picked-time.txt
+
