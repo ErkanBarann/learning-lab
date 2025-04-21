@@ -2,12 +2,7 @@ name: Learning Progress
 
 on:
   schedule:
-    - cron: '13 7 * * *'
-    - cron: '28 11 * * *'
-    - cron: '42 15 * * *'
-    - cron: '07 20 * * *'
-    - cron: '51 23 * * *'
-    - cron: '0 0 1 * *'
+    - cron: '0 7 * * *'  # Her gün sabah 07:00'de (UTC) tetiklenir
   workflow_dispatch:
 
 jobs:
@@ -22,48 +17,36 @@ jobs:
       - name: Set timezone to Europe/Berlin
         run: sudo timedatectl set-timezone Europe/Berlin
 
-      - name: Read picked time from local cache
-        id: timecheck
+      - name: Pick random delay between 0 and 900 minutes (15 saat)
+        id: delay
         run: |
-          FILE=".github/.cache/picked-time.txt"
-          if [ -f "$FILE" ]; then
-            PICKED=$(cat $FILE)
-          else
-            echo "00:00" > $FILE  # varsayılan saat
-            PICKED="00:00"
-          fi
+          MINUTES=$((RANDOM % 901))
+          echo "Delaying for $MINUTES minutes..."
+          echo "sleep_minutes=$MINUTES" >> $GITHUB_OUTPUT
 
-          CUR_HOUR=$(date +%H)
-          CUR_MIN=$(date +%M)
-          CUR_TIME="${CUR_HOUR#0}:${CUR_MIN#0}"
-          echo "Picked: $PICKED | Now: $CUR_TIME"
+      - name: Sleep for the picked duration
+        run: |
+          MINUTES=${{ steps.delay.outputs.sleep_minutes }}
+          echo "Sleeping for $MINUTES minutes..."
+          sleep $((MINUTES * 60))
 
-          if [ "$CUR_TIME" = "$PICKED" ]; then
-            echo "run=true" >> $GITHUB_OUTPUT
-          else
-            echo "run=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Select random topic from topics.txt
-        if: steps.timecheck.outputs.run == 'true'
+      - name: Pick random topic from topics.txt
         id: pick_topic
         run: |
           TOPIC=$(shuf -n 1 topics.txt)
           echo "topic=$TOPIC" >> $GITHUB_OUTPUT
 
       - name: Update log.txt with new topic
-        if: steps.timecheck.outputs.run == 'true'
         run: |
-          echo "$(date '+%Y-%m-%d') - ${{ steps.pick_topic.outputs.topic }}" >> log.txt
+          echo "$(date '+%Y-%m-%d %H:%M') - ${{ steps.pick_topic.outputs.topic }}" >> log.txt
 
-      - name: Commit and push changes as yourself
-        if: steps.timecheck.outputs.run == 'true'
+      - name: Commit and push changes
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           git config user.name "ErkanBarann"
           git config user.email "115561897+ErkanBarann@users.noreply.github.com"
           git add log.txt
-          git commit -m "Log: $(date '+%Y-%m-%d') - ${{ steps.pick_topic.outputs.topic }}" || echo "No changes to commit"
+          git commit -m "Log: $(date '+%Y-%m-%d %H:%M') - ${{ steps.pick_topic.outputs.topic }}" || echo "No changes to commit"
           git remote set-url origin https://ErkanBarann:${GH_TOKEN}@github.com/ErkanBarann/learning-lab.git
           git push origin main
