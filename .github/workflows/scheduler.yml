@@ -12,20 +12,12 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Pick random time and write to file
+      - name: Create cache folder
+        run: mkdir -p .github/.cache
+
+      - name: Pick random time and save to hidden file
         run: |
           TIMES=("07:13" "11:28" "15:42" "20:07" "23:51")
           PICKED=$(shuf -n 1 -e "${TIMES[@]}")
-          echo "$PICKED" > picked-time.txt
+          echo "$PICKED" > .github/.cache/picked-time.txt
           echo "Picked time for today: $PICKED"
-
-      - name: Commit picked-time.txt
-        env:
-          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-        run: |
-          git config user.name "ErkanBarann"
-          git config user.email "115561897+ErkanBarann@users.noreply.github.com"
-          git add picked-time.txt
-          git commit -m "Picked time for $(date +%Y-%m-%d)"
-          git remote set-url origin https://ErkanBarann:${GH_TOKEN}@github.com/ErkanBarann/learning-lab.git
-          git push origin main
