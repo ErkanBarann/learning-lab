@@ -20,7 +20,7 @@ jobs:
       - name: Pick random delay between 0 and 900 minutes (15 saat)
         id: delay
         run: |
-          MINUTES=$((RANDOM % 5))
+          MINUTES=$((RANDOM % 351))
           echo "Delaying for $MINUTES minutes..."
           echo "sleep_minutes=$MINUTES" >> $GITHUB_OUTPUT
 
