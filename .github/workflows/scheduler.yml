@@ -1,0 +1,24 @@
+name: Scheduler
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Her gün saat 00:00'da
+  workflow_dispatch:
+
+jobs:
+  select-random-time:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pick random time and save to file
+        run: |
+          TIMES=("07:13" "11:28" "15:42" "20:07" "23:51")
+          PICKED=$(shuf -n 1 -e "${TIMES[@]}")
+          echo "$PICKED" > picked-time.txt
+          echo "Rastgele seçilen saat: $PICKED"
+
+      - name: Upload picked time as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: picked-time
+          path: picked-time.txt
+
