@@ -18,6 +18,7 @@ jobs:
       - name: Pick random time and save to hidden file
         run: |
           TIMES=("07:13" "11:28" "15:42" "20:07" "23:51")
-          PICKED=$(shuf -n 1 -e "${TIMES[@]}")
+          INDEX=$((RANDOM % ${#TIMES[@]}))
+          PICKED=${TIMES[$INDEX]}
           echo "$PICKED" > .github/.cache/picked-time.txt
           echo "Picked time for today: $PICKED"
