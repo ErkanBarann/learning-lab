@@ -2,23 +2,30 @@ name: Scheduler
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Her gün saat 00:00'da
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
   select-random-time:
     runs-on: ubuntu-latest
     steps:
-      - name: Pick random time and save to file
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Pick random time and write to file
         run: |
           TIMES=("07:13" "11:28" "15:42" "20:07" "23:51")
           PICKED=$(shuf -n 1 -e "${TIMES[@]}")
           echo "$PICKED" > picked-time.txt
-          echo "Rastgele seçilen saat: $PICKED"
+          echo "Picked time for today: $PICKED"
 
-      - name: Upload picked time as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: picked-time
-          path: picked-time.txt
-
+      - name: Commit picked-time.txt
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: |
+          git config user.name "ErkanBarann"
+          git config user.email "115561897+ErkanBarann@users.noreply.github.com"
+          git add picked-time.txt
+          git commit -m "Picked time for $(date +%Y-%m-%d)"
+          git remote set-url origin https://ErkanBarann:${GH_TOKEN}@github.com/ErkanBarann/learning-lab.git
+          git push origin main
