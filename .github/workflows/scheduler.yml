@@ -17,7 +17,7 @@ jobs:
           echo "Rastgele seçilen saat: $PICKED"
 
       - name: Upload picked time as artifact
-        uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@v3
         with:
           name: picked-time
           path: picked-time.txt
