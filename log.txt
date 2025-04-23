@@ -1,3 +1,4 @@
 2025-04-21 14:25 - Deploying apps to Kubernetes with Helm
 2025-04-21 14:49 - How Docker build cache works
 2025-04-22 09:38 - Using environment variables in Jenkins pipeline
+2025-04-23 10:16 - Defining Jenkins pipelines
