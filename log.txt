@@ -3,3 +3,4 @@
 2025-04-22 09:38 - Using environment variables in Jenkins pipeline
 2025-04-23 10:16 - Defining Jenkins pipelines
 2025-04-24 09:15 - Docker volume management and persistence
+2025-04-25 10:10 - Managing S3 buckets with Terraform
