@@ -5,3 +5,4 @@
 2025-04-24 09:15 - Docker volume management and persistence
 2025-04-25 10:10 - Managing S3 buckets with Terraform
 2025-04-26 10:11 - Using dynamic inventory in Ansible
+2025-04-27 10:00 - Terraform backend configuration
