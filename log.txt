@@ -7,3 +7,4 @@
 2025-04-26 10:11 - Using dynamic inventory in Ansible
 2025-04-27 10:00 - Terraform backend configuration
 2025-04-28 10:34 - Docker image cleanup methods
+2025-04-29 09:30 - Using dynamic inventory in Ansible
