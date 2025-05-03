@@ -2,7 +2,7 @@ name: Learning Progress
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # Her gün sabah 07:00'de (UTC) tetiklenir
+    - cron: '0 13 * * *'  # Her gün sabah 07:00'de (UTC) tetiklenir
   workflow_dispatch:
 
 jobs:
