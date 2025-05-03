@@ -11,3 +11,4 @@
 2025-04-30 09:57 - Understanding AWS IAM roles
 2025-05-01 09:57 - Deploying apps to Kubernetes with Helm
 2025-05-02 09:34 - Writing Kubernetes deployment YAML
+2025-05-03 09:30 - Monitoring resources with CloudWatch
