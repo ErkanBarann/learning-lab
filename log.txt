@@ -12,3 +12,4 @@
 2025-05-01 09:57 - Deploying apps to Kubernetes with Helm
 2025-05-02 09:34 - Writing Kubernetes deployment YAML
 2025-05-03 09:30 - Monitoring resources with CloudWatch
+2025-05-04 15:44 - Kubernetes horizontal pod autoscaling
