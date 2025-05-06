@@ -14,3 +14,4 @@
 2025-05-03 09:30 - Monitoring resources with CloudWatch
 2025-05-04 15:44 - Kubernetes horizontal pod autoscaling
 2025-05-05 15:32 - Creating EC2 with Terraform
+2025-05-06 15:38 - Monitoring resources with CloudWatch
