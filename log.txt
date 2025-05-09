@@ -17,3 +17,4 @@
 2025-05-06 15:38 - Monitoring resources with CloudWatch
 2025-05-07 15:59 - Docker volume management and persistence
 2025-05-08 15:38 - Using environment variables in Jenkins pipeline
+2025-05-09 15:58 - Local development with Docker Compose
