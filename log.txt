@@ -18,3 +18,4 @@
 2025-05-07 15:59 - Docker volume management and persistence
 2025-05-08 15:38 - Using environment variables in Jenkins pipeline
 2025-05-09 15:58 - Local development with Docker Compose
+2025-05-10 15:35 - Creating EC2 with Terraform
