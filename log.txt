@@ -20,3 +20,4 @@
 2025-05-09 15:58 - Local development with Docker Compose
 2025-05-10 15:35 - Creating EC2 with Terraform
 2025-05-11 15:36 - Monitoring resources with CloudWatch
+2025-05-12 16:01 - Managing secrets with Ansible Vault
