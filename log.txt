@@ -21,3 +21,4 @@
 2025-05-10 15:35 - Creating EC2 with Terraform
 2025-05-11 15:36 - Monitoring resources with CloudWatch
 2025-05-12 16:01 - Managing secrets with Ansible Vault
+2025-05-13 16:05 - Setting up CI/CD with GitHub Actions
