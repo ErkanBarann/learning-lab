@@ -22,3 +22,4 @@
 2025-05-11 15:36 - Monitoring resources with CloudWatch
 2025-05-12 16:01 - Managing secrets with Ansible Vault
 2025-05-13 16:05 - Setting up CI/CD with GitHub Actions
+2025-05-14 15:32 - Difference between Terraform provider and data source
