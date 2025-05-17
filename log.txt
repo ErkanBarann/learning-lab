@@ -25,3 +25,4 @@
 2025-05-14 15:32 - Difference between Terraform provider and data source
 2025-05-15 15:40 - Monitoring resources with CloudWatch
 2025-05-16 16:28 - S3 lifecycle policy examples
+2025-05-17 16:15 - Defining Jenkins pipelines
