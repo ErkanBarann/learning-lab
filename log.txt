@@ -27,3 +27,4 @@
 2025-05-16 16:28 - S3 lifecycle policy examples
 2025-05-17 16:15 - Defining Jenkins pipelines
 2025-05-18 15:32 - Monitoring resources with CloudWatch
+2025-05-19 16:25 - Difference between Kubernetes configMap and secret
