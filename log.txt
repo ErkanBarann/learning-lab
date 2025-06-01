@@ -40,3 +40,4 @@
 2025-05-29 16:01 - Defining Kubernetes resource limits
 2025-05-30 16:29 - Deploying apps to Kubernetes with Helm
 2025-05-31 15:52 - Local development with Docker Compose
+2025-06-01 15:28 - Creating Ansible role structure
