@@ -42,3 +42,4 @@
 2025-05-31 15:52 - Local development with Docker Compose
 2025-06-01 15:28 - Creating Ansible role structure
 2025-06-02 16:16 - Managing secrets with Ansible Vault
+2025-06-03 16:09 - Writing Kubernetes deployment YAML
