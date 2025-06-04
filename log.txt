@@ -43,3 +43,4 @@
 2025-06-01 15:28 - Creating Ansible role structure
 2025-06-02 16:16 - Managing secrets with Ansible Vault
 2025-06-03 16:09 - Writing Kubernetes deployment YAML
+2025-06-04 15:48 - Using Jenkins shared libraries
