@@ -45,3 +45,4 @@
 2025-06-03 16:09 - Writing Kubernetes deployment YAML
 2025-06-04 15:48 - Using Jenkins shared libraries
 2025-06-05 15:36 - Difference between Terraform provider and data source
+2025-06-06 15:49 - Difference between Terraform provider and data source
