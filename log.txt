@@ -47,3 +47,4 @@
 2025-06-05 15:36 - Difference between Terraform provider and data source
 2025-06-06 15:49 - Difference between Terraform provider and data source
 2025-06-07 15:53 - Creating EC2 with Terraform
+2025-06-08 15:29 - Deploying apps to Kubernetes with Helm
