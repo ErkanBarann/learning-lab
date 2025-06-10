@@ -49,3 +49,4 @@
 2025-06-07 15:53 - Creating EC2 with Terraform
 2025-06-08 15:29 - Deploying apps to Kubernetes with Helm
 2025-06-09 16:28 - S3 lifecycle policy examples
+2025-06-10 15:57 - Monitoring resources with CloudWatch
