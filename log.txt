@@ -51,3 +51,4 @@
 2025-06-09 16:28 - S3 lifecycle policy examples
 2025-06-10 15:57 - Monitoring resources with CloudWatch
 2025-06-11 15:59 - Monitoring resources with CloudWatch
+2025-06-12 16:26 - Managing secrets with Ansible Vault
