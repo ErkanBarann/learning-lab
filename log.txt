@@ -54,3 +54,4 @@
 2025-06-12 16:26 - Managing secrets with Ansible Vault
 2025-06-13 16:27 - S3 lifecycle policy examples
 2025-06-14 15:29 - Difference between Kubernetes service and ingress
+2025-06-15 16:16 - Setting up CI/CD with GitHub Actions
