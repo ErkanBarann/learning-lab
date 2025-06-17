@@ -56,3 +56,4 @@
 2025-06-14 15:29 - Difference between Kubernetes service and ingress
 2025-06-15 16:16 - Setting up CI/CD with GitHub Actions
 2025-06-16 15:37 - S3 lifecycle policy examples
+2025-06-17 16:15 - Creating EC2 with Terraform
