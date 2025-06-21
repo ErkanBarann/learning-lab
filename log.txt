@@ -60,3 +60,4 @@
 2025-06-18 15:58 - Difference between Kubernetes service and ingress
 2025-06-19 16:00 - Local development with Docker Compose
 2025-06-20 15:51 - Deploying apps to Kubernetes with Helm
+2025-06-21 16:24 - Creating Ansible role structure
