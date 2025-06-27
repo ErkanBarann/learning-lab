@@ -66,3 +66,4 @@
 2025-06-24 16:30 - S3 lifecycle policy examples
 2025-06-25 16:18 - Kubernetes horizontal pod autoscaling
 2025-06-26 15:49 - Creating EC2 with Terraform
+2025-06-27 16:30 - Local development with Docker Compose
