@@ -68,3 +68,4 @@
 2025-06-26 15:49 - Creating EC2 with Terraform
 2025-06-27 16:30 - Local development with Docker Compose
 2025-06-28 16:18 - How Docker build cache works
+2025-06-29 16:14 - Choosing the right AWS EC2 instance type
